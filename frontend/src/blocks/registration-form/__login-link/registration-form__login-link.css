@@ -1,0 +1,13 @@
+.registration-form__login-link {
+    text-decoration: none;
+    margin: 0;
+    color: #FFFFFF;
+    margin-left: 10px;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.registration-form__login-link:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}

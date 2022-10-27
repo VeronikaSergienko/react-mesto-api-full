@@ -1,0 +1,5 @@
+.popup__input-conteiner {
+    box-sizing: border-box;
+    padding-bottom: 30px;
+    position: relative;
+}

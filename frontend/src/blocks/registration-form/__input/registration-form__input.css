@@ -1,0 +1,15 @@
+.registration-form__input {
+    color: #ffffff;
+    background-color: #000;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 2px solid rgba(204, 204, 204, 1);
+    width: 100%;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 500;
+}
+
+.registration-form__input:focus {
+    outline: none;
+}

@@ -1,0 +1,7 @@
+.registration-form__signin {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

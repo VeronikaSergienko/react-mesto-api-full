@@ -1,0 +1,6 @@
+.header__conteiner {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 46px;
+}

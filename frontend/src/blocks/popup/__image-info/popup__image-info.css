@@ -1,0 +1,13 @@
+.popup__image-info {
+    box-sizing: border-box;
+    width: 120px;
+    height: 120px;
+    background: none;
+    /* background-image: url(../../../images/successful-registration.svg); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 32px;
+}
