@@ -1,4 +1,5 @@
-// import BASE_URL from "./constants";
+const { NODE_ENV } = process.env;
+const BASE_URL = NODE_ENV === 'development' ? 'http://localhost:4444' : 'https://api.vss.students.nomoredomains.icu';
 
 class Api {
   constructor({ baseUrl, headers }) {
@@ -140,32 +141,17 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://api.vss.students.nomoredomains.icu',
+  baseUrl: BASE_URL,
   headers: {
     "Content-Type": "application/json",
   },
 });
 
 export const mestoAuth = new Api({
-  baseUrl: 'https://api.vss.students.nomoredomains.icu',
+  baseUrl: BASE_URL,
   headers: {
     "Content-Type": "application/json",
   },
 });
-
-// const api = new Api({
-//   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-45/",
-//   headers: {
-//     authorization: "a5c762bc-210a-4e68-9fc7-978e4674d050",
-//     "Content-Type": "application/json",
-//   },
-// });
-
-// export const mestoAuth = new Api({
-//   baseUrl: "https://auth.nomoreparties.co",
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-// });
 
 export default api;
