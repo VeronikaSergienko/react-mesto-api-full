@@ -140,14 +140,14 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'http://localhost:4444',
+  baseUrl: 'https://api.vss.students.nomoredomains.icu',
   headers: {
     "Content-Type": "application/json",
   },
 });
 
 export const mestoAuth = new Api({
-  baseUrl: 'http://localhost:4444',
+  baseUrl: 'https://api.vss.students.nomoredomains.icu',
   headers: {
     "Content-Type": "application/json",
   },
