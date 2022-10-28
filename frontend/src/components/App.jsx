@@ -152,6 +152,21 @@ function App() {
       });
   };
 
+  const auth = async (jwt) => {
+    mestoAuth
+      .getContent(jwt)
+      .then((res) => {
+        if (res.email) {
+          setEmail(res.email);
+          setLoggedIn(true);
+          history.push("/");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const handleLogin = ({ email, password }) => {
     mestoAuth
       .authorize({ email, password })
@@ -169,20 +184,7 @@ function App() {
       });
   };
 
-  const auth = async (jwt) => {
-    mestoAuth
-      .getContent(jwt)
-      .then((res) => {
-        if (res.email) {
-          setEmail(res.email);
-          setLoggedIn(true);
-          history.push("/");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+
 
   const handleSignOut = () => {
     setEmail("");
