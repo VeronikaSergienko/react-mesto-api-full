@@ -5,6 +5,27 @@ const NotFound = require('../errors/NotFound');
 const AuthorizedError = require('../errors/AuthorizedError');
 const ValidationError = require('../errors/ValidationError');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
+// POST /signin — логинит пользователя
+const login = (req, res, next) => {
+  const { email, password } = req.body;
+  return User.findOne({ email }).select('+password')
+    .then((user) => {
+      if (!user) {
+        throw new AuthorizedError({ message: 'Передан неверный логин или пароль' });
+      }
+      bcrypt.compare(password, user.password, (err, isValidPassword) => {
+        if (!isValidPassword) {
+          throw new AuthorizedError('Передан неверный логин или пароль');
+        }
+        const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
+        return res.status(200).send({ token });
+      });
+    })
+    .catch(next);
+};
+
 // GET /users — возвращает всех пользователей
 const getUser = (req, res, next) => {
   User.find({})
@@ -102,25 +123,6 @@ const patchUserAvatar = (req, res, next) => {
         next(err);
       }
     });
-};
-
-// POST /signin — логинит пользователя
-const login = (req, res, next) => {
-  const { email, password } = req.body;
-  return User.findOne({ email }).select('+password')
-    .then((user) => {
-      if (!user) {
-        throw new AuthorizedError({ message: 'Передан неверный логин или пароль' });
-      }
-      bcrypt.compare(password, user.password, (err, isValidPassword) => {
-        if (!isValidPassword) {
-          throw new AuthorizedError('Передан неверный логин или пароль');
-        }
-        const token = jwt.sign({ _id: user._id }, 'some-secret-key', { expiresIn: '7d' });
-        return res.status(200).send({ token });
-      });
-    })
-    .catch(next);
 };
 
 module.exports = {
