@@ -1,5 +1,5 @@
 const { NODE_ENV } = process.env;
-const BASE_URL = NODE_ENV === 'development' ? 'http://localhost:4444' : 'https://api.vss.students.nomoredomains.icu';
+const BASE_URL = NODE_ENV === 'development' ? 'http://localhost:4444' : 'https://api.vss.students.mesto.nomoredomains.monster';
 
 class Api {
   constructor({ baseUrl, headers }) {
