@@ -1,7 +1,7 @@
 # react-mesto-api-full
 
-IP 51.250.67.20
+IP 185.177.219.118
 
-Frontend https://vss.students.nomoredomains.icu/
+Frontend https://vss.students.mesto.nomoredomains.monster/
 
-Backend https://api.vss.students.nomoredomains.icu/
+Backend https://api.vss.students.mesto.nomoredomains.monster/
